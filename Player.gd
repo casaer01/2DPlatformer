@@ -18,5 +18,13 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_key_pressed(KEY_SPACE) and is_on_floor():
 		velocity.y = -jump_force
+		
+	if global_position.y > 200:
+		game_over()	
 
 	move_and_slide()
+	
+	
+
+func game_over():
+	get_tree().reload_current_scene()
